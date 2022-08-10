@@ -44,9 +44,17 @@ function setupKeyboardListener() {
 function update() {
   if (39 in keysDown) {
     spaceshipX += 5;
+    if (spaceshipX >= canvas.width - 60) {
+      // 우주선이 캔버스 화면에서 벗어나지 않게 범위 지정
+      spaceshipX = canvas.width - 60;
+    }
   }
   if (37 in keysDown) {
     spaceshipX -= 5;
+    if (spaceshipX <= 0) {
+      // 우주선이 캔버스 화면에서 벗어나지 않게 범위 지정
+      spaceshipX = 0;
+    }
   }
 }
 
